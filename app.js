@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db')
 const dotenv = require('dotenv')
+const morgan = require('morgan')
 //const cors = require('cors')
 const path = require('path')
 const app = express()
@@ -10,6 +11,7 @@ connectDB()
 
 //app.use(cors())
 app.use(express.json())
+app.use(morgan('tiny'))
 //app.use(cookieParser());
 
 app.use('/api/v1/auth', require('./routes/auth'))
